@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testings - Free AI Slides & Presentation Maker</title>
+    <meta name="description" content="Design presentations fast with testings. Create free AI slides with templates and save hours on deck creation. Perfect for founders, sales, and consultants.">
+    <style>
+        :root {
+            --color-primary: #FF6B6B;
+            --color-primary-dark: #EE5253;
+            --color-accent: #4834D4;
+            --color-background: #FFF9F2;
+            --color-surface: #FFFFFF;
+            --color-text: #2D3436;
+            --color-text-muted: #636E72;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        h1 { font-size: 3.5rem; letter-spacing: -0.02em; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
+        p { margin-bottom: 1.5rem; font-size: 1.125rem; }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(255, 249, 242, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 5% 6rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 span {
+            color: var(--color-primary);
+            position: relative;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 107, 107, 0.2);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--color-text-muted);
+            max-width: 700px;
+            margin: 1.5rem auto 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .secondary-link {
+            color: var(--color-text-muted);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--color-surface);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: #fef0ef;
+            border-radius: 40px;
+            padding: 6rem 5%;
+            margin: 2rem 5%;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            margin-top: 1.5rem;
+            font-style: normal;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, #FF6B6B 0%, #4834D4 100%);
+            color: white;
+            border-radius: 40px;
+            margin: 4rem 5%;
+        }
+
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .final-cta .btn {
+            background: white;
+            color: var(--color-primary);
+            font-size: 1.25rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: var(--color-text);
+            color: white;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: #bdc3c7;
+            transition: fill 0.2s;
+        }
+
+        .social-icons a:hover svg {
+            fill: var(--color-primary);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            text-align: center;
+            color: #636E72;
+            border-top: 1px solid #3d484d;
+            padding-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero-btns { flex-direction: column; }
+            .nav-links { display: none; }
+            .footer-content { flex-direction: column; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <span style="font-weight:700;font-size:1.25rem">testings</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="auth.html">Sign In</a>
+            <a href="https://test.test" class="btn btn-primary" style="padding: 0.6rem 1.5rem;">Start Free</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Stop staring at blank slides. <span>Start presenting.</span> 🚀</h1>
+        <p>Turn rough outlines into beautiful, brand-consistent decks in seconds. The free AI tool for founders, sales reps, and consultants who need to move fast.</p>
+        <div class="hero-btns">
+            <a href="https://test.test" class="btn btn-primary">Create Your Deck Free</a>
+            <a href="#how-it-works" class="secondary-link">See how it works</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>Built for your workflow 🛠️</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">✨</span>
+                <h3>From "v0" to "v2"</h3>
+                <p>Don't waste time outlining. Paste your messy notes and let our AI structure your narrative into a professional sequence instantly.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Brand Guardrails</h3>
+                <p>Keep every teammate on-brand automatically. We apply your colors and fonts so you never have to fix a "rogue" deck again.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📥</span>
+                <h3>Pro Exports</h3>
+                <p>Done drafting? Export directly to PowerPoint or PDF. No more fighting with layout boxes or pixel-pushing at midnight.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <h2>Simple as 1, 2, 3... 🎉</h2>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Input Content</h3>
+                <p>Paste your rough outline, blog post, or meeting notes into the AI prompt.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Choose Style</h3>
+                <p>Select a template or upload your brand kit to keep everything looking sharp.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Export & Pitch</h3>
+                <p>Download your deck as a PPT or PDF and get ready to wow your audience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>What users are saying 💬</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Saved me 5 hours on my Seed round pitch deck. The AI actually understands narrative flow and didn't just give me bullet points."</p>
+                <div class="testimonial-author">
+                    <span>🚀</span> Sarah J., Tech Founder
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Our sales team finally looks like they work for the same company. The brand consistency feature is a complete game-changer for us."</p>
+                <div class="testimonial-author">
+                    <span>💼</span> Mark D., Sales Director
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The PPT export is flawless. I spend my time on the actual strategy now, not adjusting font sizes and alignment."</p>
+                <div class="testimonial-author">
+                    <span>🧠</span> Elena K., Strategy Consultant
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Ready to save hours on your next deck?</h2>
+        <p>Join thousands of founders and consultants using testings to design faster.</p>
+        <a href="https://test.test" class="btn">Create My First Slide Free</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <a href="index.html" class="logo" style="color:white; margin-bottom: 1rem;">
+                    <span style="font-weight:700;font-size:1.25rem">testings</span>
+                </a>
+                <p style="font-size: 0.9rem; color: #bdc3c7;">Free AI slides tool to design presentations fast.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="auth.html">Sign In</a>
+            </div>
+            <div class="social-icons">
+                <a href="#">
+                    <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                </a>
+                <a href="#">
+                    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="copyright">
+            copyright © 2026 testings. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
